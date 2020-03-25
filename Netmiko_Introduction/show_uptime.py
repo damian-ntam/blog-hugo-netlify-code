@@ -6,12 +6,6 @@ devices = [{
     "username": "admin",
     "password": "C1sco12345",
     "port": "8181",
-}, {
-    "device_type": "cisco_xe",
-    "ip": "ios-xe-mgmt-latest.cisco.com",
-    "username": "developer",
-    "password": "C1sco12345",
-    "port": "8181",
 }]
 
 for device in devices:
