@@ -11,7 +11,7 @@ router = {
 netconf_template = open('templates/interface.xml').read()
 netconf_payload = netconf_template.format(description="Changing through Netconf")
 
-print(netconf_payload)
+#print(netconf_payload)
 
 m = manager.connect(host=router['ip'], port=router['port'], username=router['username'],
                     password=router['password'], device_params={'name':'iosxe'}, hostkey_verify=False)

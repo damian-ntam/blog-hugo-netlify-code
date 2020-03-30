@@ -17,7 +17,7 @@ netconf_filter = """
 <filter>
    <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
       <interface>
-         <name>GigabitEthernet3</name>
+         <name>GigabitEthernet1</name>
       </interface>
    </interfaces>
 </filter>
@@ -27,6 +27,4 @@ running_config = m.get_config("running", netconf_filter)
 
 running_config_xml = xmltodict.parse(running_config.xml)["rpc-reply"]["data"]
 #pprint(running_config_xml["interfaces"]["interface"])
-
-
 print(xml.dom.minidom.parseString(str(running_config)).toprettyxml())
