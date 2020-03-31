@@ -22,7 +22,7 @@ netconf_payload = template.render(template_vars)
 # description = "Changed description"
 # template = my_template.get_template("interface.j2.xml")
 # netconf_payload = template.render(description=description)
-
+ 
 print(netconf_payload)
 
 m = manager.connect(host=router['ip'], port=router['port'], username=router['username'],
