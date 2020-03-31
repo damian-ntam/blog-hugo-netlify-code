@@ -1,5 +1,5 @@
 variable "do_token" {
-  default = "82c33***bd6522f56d"
+  default = "82c33***2f56d"
 }
 
 variable "region" {
