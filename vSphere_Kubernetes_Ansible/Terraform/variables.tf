@@ -1,5 +1,5 @@
 variable "vsphere_server" {
-  default = "10.48.109.11"
+  default = "10.x.y.z"
 }
 
 variable "vsphere_user" {
@@ -7,7 +7,7 @@ variable "vsphere_user" {
 }
 
 variable "vsphere_password" {
-  default = "*****"
+  default = "***"
 }
 
 variable "vsphere_datacenter" {

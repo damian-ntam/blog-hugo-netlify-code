@@ -39,9 +39,9 @@ data "vsphere_virtual_machine" "template" {
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
-resource "vsphere_virtual_machine" "aci_vm1" {
+resource "vsphere_virtual_machine" "server1" {
   count            = 1
-  name             = var.aci_vm1_name
+  name             = var.server1_name
   resource_pool_id = data.vsphere_compute_cluster.cl.resource_pool_id
   datastore_id     = data.vsphere_datastore.ds.id
 
@@ -69,12 +69,12 @@ resource "vsphere_virtual_machine" "aci_vm1" {
 
     customize {
       linux_options {
-        host_name = var.aci_vm1_name
+        host_name = var.server1_name
         domain    = var.domain_name
       }
 
       network_interface {
-        ipv4_address = var.aci_vm1_address
+        ipv4_address = var.server1_address
         ipv4_netmask = "24"
       }
 
@@ -85,9 +85,9 @@ resource "vsphere_virtual_machine" "aci_vm1" {
   }
 }
 
-resource "vsphere_virtual_machine" "aci_vm2" {
+resource "vsphere_virtual_machine" "server2" {
   count            = 1
-  name             = var.aci_vm2_name
+  name             = var.server2_name
   resource_pool_id = data.vsphere_compute_cluster.cl.resource_pool_id
   datastore_id     = data.vsphere_datastore.ds.id
 
@@ -116,12 +116,59 @@ resource "vsphere_virtual_machine" "aci_vm2" {
 
     customize {
       linux_options {
-        host_name = var.aci_vm2_name
+        host_name = var.server2_name
         domain    = var.domain_name
       }
 
       network_interface {
-        ipv4_address = var.aci_vm2_address
+        ipv4_address = var.server2_address
+        ipv4_netmask = "24"
+      }
+
+      ipv4_gateway    = var.gateway
+      dns_server_list = [var.dns_list]
+      dns_suffix_list = [var.dns_search]
+    }
+  }
+}
+
+resource "vsphere_virtual_machine" "server3" {
+  count            = 1
+  name             = var.server3_name
+  resource_pool_id = data.vsphere_compute_cluster.cl.resource_pool_id
+  datastore_id     = data.vsphere_datastore.ds.id
+
+  num_cpus = 2
+  memory   = 4096
+  guest_id = data.vsphere_virtual_machine.template.guest_id
+
+  scsi_type = data.vsphere_virtual_machine.template.scsi_type
+
+  disk {
+    label            = "disk0"
+    size             = data.vsphere_virtual_machine.template.disks[0].size
+    thin_provisioned = data.vsphere_virtual_machine.template.disks[0].thin_provisioned
+  }
+
+  folder = var.folder
+
+  network_interface {
+    network_id   = data.vsphere_network.vm3_net.id
+    adapter_type = data.vsphere_virtual_machine.template.network_interface_types[0]
+  }
+
+  clone {
+    linked_clone  = "false"
+    template_uuid = data.vsphere_virtual_machine.template.id
+
+    customize {
+      linux_options {
+        host_name = var.server3_name
+        domain    = var.domain_name
+      }
+
+      network_interface {
+        ipv4_address = var.server3_address
         ipv4_netmask = "24"
       }
 
