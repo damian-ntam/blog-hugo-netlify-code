@@ -6,7 +6,7 @@ resource "digitalocean_droplet" "myserver" {
    count = var.number_servers
    name = "kubernetes-${count.index}"
    image = "ubuntu-18-04-x64"
-   size = "1gb"
+   size = var.size
    region = var.region
    ssh_keys = [
         var.ssh_fingerprint
