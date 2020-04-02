@@ -22,14 +22,6 @@ $scope.addTodo = function() {
   });
 };
 
-$scope.showTodo = function() {
-  console.log($scope.todo);
-  $http.get(url + id).success(function(response) {
-    console.log(response);
-    refresh();
-  });
-};
-
 $scope.removeTodo = function(id) {
   $http.delete(url + id).success(function(response) {
     console.log("deleting: " + response);
@@ -54,4 +46,4 @@ $scope.updateTodo = function() {
  	})
 };
 
-}]);﻿
+}]);
