@@ -14,12 +14,12 @@ device = {
 device_xr = driver_xr(hostname=device['ip'], username=device['username'], password=device['password'], optional_args={'port':device['port']})
 device_xr.open()
 get_method = dir(device_xr)
-print(json.dumps(get_method, sort_keys=True, indent=4))
+#print(json.dumps(get_method, sort_keys=True, indent=4))
 
-get_hostname = device_xr.hostname
-print(f"Hostname is {get_hostname}")
+#get_hostname = device_xr.hostname
+#print(f"Hostname is {get_hostname}")
 
-get_facts = device_xr.get_facts()
+#get_facts = device_xr.get_facts()
 #print(json.dumps(get_facts, sort_keys=True, indent=4))
 
 get_interfaces_counters = device_xr.get_interfaces_counters()

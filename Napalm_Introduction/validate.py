@@ -22,8 +22,8 @@ device_xr.open()
 response = device_xr.compliance_report("validation.yml")
 compliance_status = response['complies']
 print(f"Overall compliance status: {compliance_status}")
-print(json.dumps(response, sort_keys=True, indent=4))
-for key, value in response.items():
-   print(key)
-   print(value)
+#print(json.dumps(response, sort_keys=True, indent=4))
+#for key, value in response.items():
+#   print(key)
+#   print(value)
 
