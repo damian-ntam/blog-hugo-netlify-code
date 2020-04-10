@@ -17,21 +17,18 @@ devices = [{
 
 conn_XE = IOSXEDriver(**devices[0])
 conn_XE.open()
-responses = conn_XE.send_commands(["show version", "show ip int brief"])
-
-for response in responses:
-   print("RESPONSE")
-   print("*" * 100)
-   print(response.result)
+response = conn_XE.send_command("show ip int brief")
+print("RESPONSE")
+print("*" * 100)
+print(response.result)
 conn_XE.close()
 
 
 conn_XR = IOSXRDriver(**devices[1])
 conn_XR.open()
-responses = conn_XR.send_commands(["show version", "show ip int brief"])
+response = conn_XR.send_command("show ip int brief")
 
-for response in responses:
-   print("RESPONSE")
-   print("*" * 100)
-   print(response.result)
+print("RESPONSE")
+print("*" * 100)
+print(response.result)
 conn_XR.close()
