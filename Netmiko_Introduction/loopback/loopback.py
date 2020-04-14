@@ -3,14 +3,15 @@ from netmiko import Netmiko
 from jinja2 import Environment, FileSystemLoader
 
 hosts = yaml.load(open('hosts.yml'), Loader=yaml.SafeLoader)
-loopbacks = yaml.load(open('loopback.yml'), Loader=yaml.SafeLoader)
+interfaces = yaml.load(open('loopback.yml'), Loader=yaml.SafeLoader)
 
-
-env = Environment(loader = FileSystemLoader('.'), trim_blocks=True, lstrip_blocks=True)
+env = Environment(loader = FileSystemLoader('.'), trim_blocks=True, autoescape=True)
 template = env.get_template('loopback.j2')
-loopback_config = template.render(loopbacks)
+loopback_config = template.render(data=interfaces)
 
-for host in hosts["host_list"]:
+#print(loopback_config)
+
+for host in hosts["hosts"]:
    net_connect = Netmiko(
       host = host["name"],
       username = host["username"],
