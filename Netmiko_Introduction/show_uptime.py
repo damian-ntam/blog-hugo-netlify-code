@@ -1,4 +1,4 @@
-from netmiko import ConnectHandler
+from netmiko import Netmiko
 
 devices = [{
     "device_type": "cisco_xr",
