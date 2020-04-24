@@ -1,0 +1,13 @@
+    - name: Creating loopback 
+      napalm_install_config:
+        provider: "{{ junos_provider }}"
+        config_file: "{{playbook_dir}}/render/{{ inventory_hostname }}.conf"
+        commit_changes: "{{ commit_changes | default(True) }}"
+        replace_config: False
+        get_diffs: True
+        diff_file: "diff/{{ inventory_hostname }}"
+        archive_file: "backup_from_ansible/{{ inventory_hostname }}"
+        name: "{{ item.loopbackname }}"
+        enabled: True
+        description: Loopback interface 100 created with Ansible
+      with_items: "{{ loopbacks }}"

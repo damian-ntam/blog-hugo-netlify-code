@@ -3,9 +3,11 @@ from authenticate import get_token
 from pprint import pprint
 
 def main():
-   token = get_token()
+   #dnac = "sandboxdnac2.cisco.com"
+   dnac = "10.48.82.183"
 
-   dnac = "sandboxdnac2.cisco.com"
+   token = get_token(dnac)
+   
    url = f"https://{dnac}/dna/intent/api/v1/client-health"
 
    headers = {

@@ -1,12 +1,15 @@
 import requests
 import json
 
-def get_token():
-   dnac = "sandboxdnac2.cisco.com"
+def get_token(dnac):  
    url = f"https://{dnac}/dna/system/api/v1/auth/token"
 
-   username = "devnetuser"
-   password = "Cisco123!"
+   if dnac=="sandboxdnac2.cisco.com":
+      username = "devnetuser"
+      password = "Cisco123!"
+   else:
+      username = "admin"
+      password = "C!sc0123"
 
    headers = {
       "Content-Type": "application/json",
