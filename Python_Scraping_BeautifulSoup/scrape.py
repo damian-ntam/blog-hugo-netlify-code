@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
 
-
 url="https://www.imdb.com/chart/top"
 page=urlopen(url)
 soup = BeautifulSoup(page, 'html.parser')
