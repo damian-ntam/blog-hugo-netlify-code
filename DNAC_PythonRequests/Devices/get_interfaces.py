@@ -2,7 +2,6 @@ import requests
 from authenticate import get_token
 from pprint import pprint
 
-
 def main():
    token = get_token()
 
@@ -23,13 +22,13 @@ def main():
    device_list = []
 
    for device in devices:
-      print(f"{device['type']} with ID {device['id']}")
+      #print(f"{device['type']} with ID {device['id']}")
       device_list.append(device['id'])
  
    for device_id in device_list:
       print("Investigating device: " + device_id)
       new_interface_url = url + "interface/network-device/" + device_id
-      print(new_interface_url)
+      #print(new_interface_url)
       response =  requests.get(new_interface_url, headers=headers, verify=False ).json()
       interfaces = response["response"]
       for interface in interfaces:
