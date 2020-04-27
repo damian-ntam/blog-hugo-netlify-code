@@ -16,7 +16,7 @@ def main():
 
    site_name = "TESTSITE"
    building_name = "TESTBUILDING"
-   floor_name = "TESTFLOOR-2"
+   floor_name = "TESTFLOOR-1"
    
    headers = {
       "Content-Type": "application/json",
@@ -29,29 +29,35 @@ def main():
       payload = json.load(file)
 
    # Add the device (https://{{dnac}}/dna/intent/api/v1/network-device)
+   print("Adding the device")
    device_url = f"{url}/api/v1/network-device"
    response = requests.post(device_url, headers=headers, data=json.dumps(payload), verify=False ).json()
    deviceip = payload["ipAddress"][0]
 
    # Retrieve the ID of the floor with the provided name
+   print("Retrieving the floor ID")
    floor_url = f"/dna/intent/api/v1/site?name=Global/{site_name}/{building_name}/{floor_name}"
    response_floor =  requests.get(url + floor_url, headers=headers, verify=False ).json()
    floor_id = response_floor['response'][0]['id']
-   print(floor_id)
 
    # Call the API to assign the device to the floor with ID floor_id
-   site_url = f"{url}/dna/system/api/v1/site/{floor_id}/device"
-   response = requests.post(site_url, headers=headers, data={"device": [{ "ip" : deviceip }]}, verify=False ).json()
+   print(f"Assign the device to the floor with id {floor_id}")
+   site_url = f"{url}/dna/system/api/v1/site/{floor_id}/device" 
+   payload = {"device": [{ "ip" : deviceip }]}
    
-   #Checke the execution status
+   response = requests.post(site_url, headers=headers, data=json.dumps(payload), verify=False ).json()
+   
+   #Check the execution status
    executionStatusUrl = response['executionStatusUrl']
+
+   print("Checking the execution status")
    while True:
       response =  requests.get(url+executionStatusUrl, headers=headers, data=payload, verify=False ).json()
       if response['status'] == "SUCCESS":
-         print("Site was successfully added")
+         print("Device was successfully assigned")
          break
       else:
-         print("Still in progress")
+         print("Device assignment still in progress")
       time.sleep(1)
 
 if __name__ == "__main__":

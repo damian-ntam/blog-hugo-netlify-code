@@ -32,10 +32,5 @@ def main():
    for line in sitelist:
       print('   '*line.count('/') + line.split('/')[-1])
 
- 
-
-
-
-
 if __name__ == "__main__":
    main()
