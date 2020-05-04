@@ -4,7 +4,7 @@ from aci_login import get_token
 
 tenant_name = "Tenant_Python"
 
-def main():
+def create_tenant():
   
    token = get_token()
 
@@ -36,4 +36,4 @@ def get_tenant():
 
 
 if __name__ == "__main__":
-   main()
+   create_tenant()

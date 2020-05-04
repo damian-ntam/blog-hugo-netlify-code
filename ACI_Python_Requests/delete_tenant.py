@@ -2,7 +2,7 @@ import requests
 import json
 from aci_login import get_token
 
-def main():
+def delete_tenant():
    token = get_token()
 
    url = "https://10.48.109.10/api/mo/uni.json"
@@ -11,7 +11,7 @@ def main():
    payload = {
       "fvTenant": {
          "attributes": {
-            "name": "test_python",
+            "name": "Tenant_Python",
             "status": "deleted"
          }
       }
@@ -31,4 +31,4 @@ def main():
    
 
 if __name__ == "__main__":
-   main()
+   delete_tenant()

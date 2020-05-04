@@ -8,7 +8,7 @@ def get_token():
       "aaaUser": {
          "attributes": {
             "name":"admin",
-            "pwd":"---"
+            "pwd":"***"
          }
       }
    }
