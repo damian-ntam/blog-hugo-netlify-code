@@ -9,12 +9,12 @@ url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?sort=
 
 #headers_sandbox = {
 #  'Accept': 'application/json',
-#  'X-CMC_PRO_API_KEY': '258de408-dad2-429b-af8e-f6350a992614',
+#  'X-CMC_PRO_API_KEY': '***',
 #}
 
 headers = {
   'Accept': 'application/json',
-  'X-CMC_PRO_API_KEY': '6044309f-c086-420e-83fd-7a4b27e0fdae',
+  'X-CMC_PRO_API_KEY': '***',
 }
 
 
