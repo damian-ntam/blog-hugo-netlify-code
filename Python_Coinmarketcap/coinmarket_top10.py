@@ -17,7 +17,7 @@ headers = {
 
 #headers_pro = {
 #  'Accept': 'application/json',
-#  'X-CMC_PRO_API_KEY': '6044309f-c086-420e-83fd-7a4b27e0fdae',
+#  'X-CMC_PRO_API_KEY': '***',
 #}
 
 
