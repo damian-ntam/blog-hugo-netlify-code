@@ -1,5 +1,5 @@
 {
-   "name": "iprange_testwissm",
+   "name": "{{ name }}",
    "discoveryType": "Range",
    "ipAddressList": "192.168.30.0-192.168.30.100",
    "timeOut": 1,

@@ -27,27 +27,33 @@ def main():
    nested_dict_wired = {}
    nested_dict_wireless = {}
 
+   # Walk over all scores and for each one (wired and wireless) determine the quality levels
+   # and the amount of clients for each quality level. Ultimately, we will get this dict:
+
+   # {
+   # 'wired': 
+   #   {
+   #     'POOR': 0, 'FAIR': 0, 'GOOD': 2, 'IDLE': 0, 'NODATA': 0, 'NEW': 0
+   #   }, 
+   #   'wireless': 
+   #   {
+   #      'POOR': 0, 'FAIR': 42, 'GOOD': 22, 'IDLE': 0, 'NODATA': 0, 'NEW': 0
+   #   }
+   # }
+
    print("Overview")
    print("--------")
    for score in scores:
-      if score['scoreCategory']['value'] == 'ALL':
-         #print(f"Total devices - all: {score['clientCount']}")
-         print('')
-      
+     
       if score['scoreCategory']['value'] == 'WIRED':
-         #print(f"  Total devices - wired: {score['clientCount']}")
          values = score['scoreList']
          for value in values:
-            #print(f"      {value['scoreCategory']['value']}: {value['clientCount']}")
             nested_dict_wired[value['scoreCategory']['value']] = value['clientCount']
             d['wired'] = nested_dict_wired
             
       if score['scoreCategory']['value'] == 'WIRELESS':
-         #print(f"  Total devices - wireless: {score['clientCount']}")
-
          values = score['scoreList']
          for value in values:
-            #print(f"      {value['scoreCategory']['value']}: {value['clientCount']}")
             nested_dict_wireless[value['scoreCategory']['value']] = value['clientCount']
             d['wireless'] = nested_dict_wireless
   

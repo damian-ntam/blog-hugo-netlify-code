@@ -1,0 +1,36 @@
+from requests import Request, Session
+from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
+import json
+from pprint import pprint
+
+#url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
+url = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
+
+parameters = {
+  'id':'1,2'
+}
+
+headers = {
+  'Accept': 'application/json',
+  'X-CMC_PRO_API_KEY': '258de408-dad2-429b-af8e-f6350a992614',
+}
+
+#headers_pro = {
+#  'Accept': 'application/json',
+#  'X-CMC_PRO_API_KEY': '6044309f-c086-420e-83fd-7a4b27e0fdae',
+#}
+
+
+session = Session()
+session.headers.update(headers)
+
+try:
+  response = session.get(url, params=parameters)
+  response =  response.json()
+  #print(response['data'])
+  for k,v in response['data'].items():
+      print(v['name'])
+      print(v['quote']['USD']['price'])
+
+except (ConnectionError, Timeout, TooManyRedirects) as e:
+  print(e)

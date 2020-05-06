@@ -2,19 +2,21 @@ import requests
 from authenticate import get_token
 from pprint import pprint
 import json, time
-
+from jinja2 import Environment
+from jinja2 import FileSystemLoader
 
 def main():
-   #dnac = "sandboxdnac2.cisco.com"
    dnac = "10.48.82.183"
-
    token = get_token(dnac)
 
-   #url = f"https://{dnac}/dna/intent/api/v1/global-credential?credentialSubType=CLI"
    url = f"https://{dnac}"
 
    cred_url = "/api/v1/global-credential"
    credtype = "CLI"
+   
+   params = {
+      "credentialSubType": {credtype}
+   }
 
    headers = {
       "Content-Type": "application/json",
@@ -22,33 +24,37 @@ def main():
       "X-auth-Token": token 
    }
 
+   discoveryname = "newDiscovery_v11"
+
    # Part 1: Get Credentials to run the discovery
    cred_list = []
-   response =  requests.get(url + cred_url, params={"credentialSubType": credtype}, headers=headers, verify=False ).json()
+   response =  requests.get(url + cred_url, params=params, headers=headers, verify=False ).json()
    cred_list.append(response["response"][0]["id"])
-   #print(cred_list)
+   print(cred_list)
 
-   with open("templates/discovery.json", "r") as file:
-      discovery = json.load(file)
-      
-      # In the JSON body, there should also be a globalCredentialIdList key. This is not in the template as it depends on the above
-      # action 
-   discovery["globalCredentialIdList"] = cred_list
-   #print(discovery)
-
+   # Part 2: read in the discovery template
+   jinja_templates = Environment(loader=FileSystemLoader('templates'), trim_blocks=True)
+   template = jinja_templates.get_template("discovery.j2.json")
+   payload = template.render(name=discoveryname)
  
-   # Part 2: Run the discovery
+   discovery = json.loads(payload)
+      
+   # In the JSON body, there should also be a globalCredentialIdList key. This is not in the Jinja template
+   discovery["globalCredentialIdList"] = cred_list
+ 
+   # Part 3: Run the discovery
    discover_url = f"https://{dnac}/api/v1/discovery"
    response_discovery =  requests.post(discover_url, data=json.dumps(discovery), headers=headers, verify=False ).json()
    task_url = response_discovery['response']['url']
-   print(f"taskUrl => {task_url}")
-   print(f"taskId => {response_discovery['response']['taskId']}")
+   #print(f"taskUrl => {task_url}")
+   #print(f"taskId => {response_discovery['response']['taskId']}")
 
 
-   # Check the task
+   # Part 4: Check the task
    task = waitTask(url, task_url )
    discoverId = task['response']['progress']
-   print(f"DiscoverID: {discoverId}")
+
+   # Part 5: Get Discovery Status
    discover_url = f"https://{dnac}/api/v1/discovery/{discoverId}"
 
    while True:
@@ -57,6 +63,13 @@ def main():
       if response['response']['discoveryCondition'] == "Complete":
          print(f"Discovery with id {discoverId} completed successfully")
          print(f"Discovery found {response['response']['numDevices']} devices") 
+   # Part 6: Get Discovered Devices
+         devices_url = f"https://{dnac}/api/v1/discovery/{discoverId}/network-device"
+         response_devices =  requests.get(devices_url, headers=headers, verify=False ).json()
+       
+         for device in response_devices['response']:
+            print(f"Device name: {device['hostname']} with IP address {device['managementIpAddress']}")
+
          break
       
    time.sleep(10)
@@ -70,7 +83,6 @@ def waitTask(url, task_url):
       "X-auth-Token": token 
    }
    for i in range(10):
-      print("Starting for loop " + str(i))
       time.sleep(1)
       response_task =  requests.get(url + task_url, headers=headers, verify=False ).json()
       print(response_task)
