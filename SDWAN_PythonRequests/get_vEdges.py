@@ -6,7 +6,8 @@ from authenticate import login
 def get_vedges():
     session = login()
 
-    baseurl = "https://10.50.221.182:8443"
+    baseurl = "https://sandboxsdwan.cisco.com:8443"
+
     vedge_endpoint = "/dataservice/system/device/vedges"
     url = f"{baseurl}{vedge_endpoint}"
     

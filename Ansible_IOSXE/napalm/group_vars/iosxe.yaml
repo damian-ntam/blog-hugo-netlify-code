@@ -5,3 +5,4 @@ ansible_port: 8181
 ansible_python_interpreter: /usr/local/bin/python3
 ansible_network_os: ios
 ansible_connection: network_cli
+validate_file: "validation.yml"

@@ -1,4 +1,3 @@
-#simple IOS config in ansible
 ---
 - name: Show examples
   hosts: iosxe
