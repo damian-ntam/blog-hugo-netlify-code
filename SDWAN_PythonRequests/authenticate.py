@@ -3,8 +3,7 @@ import json
 
 def login():
     #baseurl = "https://10.50.221.182:8443"
-    #baseurl = "https://sandboxsdwan.cisco.com:8443"
-    baseurl = "https://10.10.20.90:8443"
+    baseurl = "https://sandboxsdwan.cisco.com:8443"
     authentication_endpoint = "/j_security_check"
     
     headers = {
@@ -13,8 +12,8 @@ def login():
     }
 
     body = {    
-        "j_username": "admin",
-        "j_password": "admin",
+        "j_username": "devnetuser",
+        "j_password": "Cisco123!",
     }
 
     session = requests.session()
@@ -31,4 +30,3 @@ def login():
         #print("Login succeeded")
         return session
         
-

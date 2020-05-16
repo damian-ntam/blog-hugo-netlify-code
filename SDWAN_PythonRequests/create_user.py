@@ -5,8 +5,7 @@ from authenticate import login
 def create_user():
     session = login()
 
-    #baseurl = "https://sandboxsdwan.cisco.com:8443"
-    baseurl = "https://10.10.20.90:8443"
+    baseurl = "https://10.50.221.182:8443"
 
     payload = {
         "group": ["netadmin"],

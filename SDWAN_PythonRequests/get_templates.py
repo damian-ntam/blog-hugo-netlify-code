@@ -6,8 +6,8 @@ from pprint import pprint
 def get_templates():
     session = login()
 
-    #baseurl = "https://sandboxsdwan.cisco.com:8443"
-    baseurl = "https://10.10.20.90:8443"
+    baseurl = "https://10.50.221.182:8443"
+    
     template_endpoint = "/dataservice/template/device"
     url = f"{baseurl}{template_endpoint}"
     

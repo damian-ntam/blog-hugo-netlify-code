@@ -1,0 +1,18 @@
+---
+- name: Restconf - GET
+  hosts: iosxe
+  connection: local
+
+  tasks:
+  - name: Get Config
+    restconf_get:
+      content: config
+      output: json
+      path: /data/ietf-interfaces:interfaces/interface=GigabitEthernet1
+    register: output
+
+  - name: display all
+    debug:
+      var: output
+
+  

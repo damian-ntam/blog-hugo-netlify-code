@@ -1,0 +1,24 @@
+---
+- name: Restconf - Config
+  hosts: iosxe
+  connection: local
+
+  tasks:
+  - name: Create Loopback interfaces
+    restconf_config:
+      method: post
+      format: json
+      path: /data/ietf-interfaces:interfaces
+      content: "{{ lookup('file','./output.json') | string }}"
+        
+    register: output
+    ignore_errors: true
+
+  - name: display all
+    debug:
+      var: output
+
+  
+###### THIS DOES NOT WORK YET
+###### GET ALWAYS {"changed": false, "code": 409, "msg": "resource '/data/ietf-interfaces:interfaces' already exist"} ERROR MESSAGE
+
