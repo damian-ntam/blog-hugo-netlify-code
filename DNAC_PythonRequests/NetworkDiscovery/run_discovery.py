@@ -24,13 +24,13 @@ def main():
       "X-auth-Token": token 
    }
 
-   discoveryname = "newDiscovery_v11"
+   discoveryname = "newDiscovery_v12"
 
    # Part 1: Get Credentials to run the discovery
    cred_list = []
    response =  requests.get(url + cred_url, params=params, headers=headers, verify=False ).json()
    cred_list.append(response["response"][0]["id"])
-   print(cred_list)
+   #print(cred_list)
 
    # Part 2: read in the discovery template
    jinja_templates = Environment(loader=FileSystemLoader('templates'), trim_blocks=True)
