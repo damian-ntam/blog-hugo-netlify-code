@@ -5,12 +5,17 @@ import json, time
 from jinja2 import Environment
 from jinja2 import FileSystemLoader
 
+dnac = "10.48.82.183"
+token = get_token(dnac)
+url = f"https://{dnac}"
+
+headers = {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+      "X-auth-Token": token 
+   }
+
 def main():
-   dnac = "10.48.82.183"
-   token = get_token(dnac)
-
-   url = f"https://{dnac}"
-
    cred_url = "/api/v1/global-credential"
    credtype = "CLI"
    
@@ -18,13 +23,7 @@ def main():
       "credentialSubType": {credtype}
    }
 
-   headers = {
-      "Content-Type": "application/json",
-      "Accept": "application/json",
-      "X-auth-Token": token 
-   }
-
-   discoveryname = "newDiscovery_v12"
+   discoveryname = "newDiscovery_v13"
 
    # Part 1: Get Credentials to run the discovery
    cred_list = []
@@ -75,13 +74,6 @@ def main():
    time.sleep(10)
  
 def waitTask(url, task_url):
-   dnac = "10.48.82.183"
-   token = get_token(dnac)
-   headers = {
-      "Content-Type": "application/json",
-      "Accept": "application/json",
-      "X-auth-Token": token 
-   }
    for i in range(10):
       time.sleep(1)
       response_task =  requests.get(url + task_url, headers=headers, verify=False ).json()
