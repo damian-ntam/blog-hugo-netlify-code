@@ -1,5 +1,5 @@
 ---
-tenant: "Tenant_Demo"
+tenant: "AATenant_Demo"
 vrf: "VRF_Demo"
 bridge_domains:
   - bd: "BD_Demo"
@@ -8,12 +8,17 @@ bridge_domains:
     scope: "shared"
 ap: "AppProf_Demo"
 epgs:
-  - epg: "EPG_Demo"
+  - epg: "EPG_Demo_1"
+    bd: "BD_Demo"
+  - epg: "EPG_Demo_2"
     bd: "BD_Demo"
 epg_contracts:
-  - epg: "EPG_Demo"
+  - epg: "EPG_Demo_1"
     contract: "Contract_EPG_Demo"
     contract_type: "consumer"
+  - epg: "EPG_Demo_2"
+    contract: "Contract_EPG_Demo"
+    contract_type: "provider"
 contracts:
   - contract: "Contract_EPG_Demo"
     subject: "Contract_EPG_Demo_Subject"

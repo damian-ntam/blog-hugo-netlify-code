@@ -6,7 +6,7 @@
     - vars/variables_aci.yml
   
   tasks:
-    - name: Task 01 - Ensure Applications Tenant Exists
+    - name: Task 01 - Create Tenant
       aci_tenant:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -17,7 +17,7 @@
         descr: "Tenant Created Using Ansible"
       tags: tenant, vrf, bd, filter, contract, app, epg
 
-    - name: Task 02 - Ensure VRF Exists
+    - name: Task 02 - Create VRF
       aci_vrf:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -29,7 +29,7 @@
         descr: "VRF Created Using Ansible"
       tags: vrf, bd
 
-    - name: Task 03 - Ensure Bridge Domains and Exist
+    - name: Task 03 - Create BD
       aci_bd:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -55,7 +55,7 @@
       with_items: "{{ bridge_domains }}"
       tags: bd
 
-    - name: Task 04 - Ensure Bridge Domains Have Subnets
+    - name: Task 04 - Create Subnet
       aci_bd_subnet:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -69,7 +69,7 @@
         scope: ["public", "shared"]
       with_items: "{{ bridge_domains }}"
 
-    - name: Task 05A - Ensure Tenant Filters Exist - ICMP
+    - name: Task 05A - Create Filter - ICMP
       aci_filter:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -82,7 +82,7 @@
       with_items: "{{ filters_icmp }}"
       tags: filter, contract
 
-    - name: Task 06A - Ensure Filters Have Filter Entries - ICMP
+    - name: Task 06A - Create Filter Entries - ICMP
       aci_filter_entry:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -97,7 +97,7 @@
       with_items: "{{ filters_icmp }}"
       tags: filter, contract
 
-    - name: Task 07A - Ensure Tenant Contracts Exist - ICMP
+    - name: Task 07A - Create Contract - ICMP
       aci_contract:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -111,7 +111,7 @@
       with_items: "{{ contracts_icmp }}"
       tags: contract
 
-    - name: Task 08A - Ensure Contracts Have Contract Subjects - icmp
+    - name: Task 08A - Create Contract Subjects - icmp
       aci_contract_subject:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
