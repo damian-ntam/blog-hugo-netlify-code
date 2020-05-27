@@ -3,7 +3,7 @@
 master ansible_host=192.168.80.105 
 
 [workers]
-worker1 ansible_host=192.168.80.106 
+worker1 ansible_host=192.168.80.106
 worker2 ansible_host=192.168.80.107 
 
 [all:vars]

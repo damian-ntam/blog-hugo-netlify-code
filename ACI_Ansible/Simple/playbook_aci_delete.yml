@@ -4,7 +4,7 @@
   gather_facts: False
   vars:
     tenants:
-      - "TenantDemo"
+      - "Tenant_Ansible"
 
   tasks:
     - name: Delete Tenants
