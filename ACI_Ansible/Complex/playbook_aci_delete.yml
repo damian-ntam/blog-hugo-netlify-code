@@ -4,7 +4,12 @@
   gather_facts: False
   vars:
     tenants:
-      - "TenantWim"
+      - "Tenant_Ansible"
+    aci_login: &aci_login
+      hostname: '{{ inventory_hostname }}'
+      username: '{{ username }}'
+      password: '{{ password }}' 
+      validate_certs: False  
 
   tasks:
     - name: Delete Tenants

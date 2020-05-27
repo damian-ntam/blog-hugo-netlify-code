@@ -5,14 +5,16 @@
   vars:
     tenants:
       - "Tenant_Ansible"
+    aci_login: &aci_login
+      hostname: '{{ inventory_hostname }}'
+      username: '{{ username }}'
+      password: '{{ password }}' 
+      validate_certs: False  
 
   tasks:
     - name: Delete Tenants
       aci_tenant:
-        host: "{{ ansible_host }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
+        <<: *aci_login
         state: "absent"
-        validate_certs: False
         tenant: "{{ item }}"
       with_items: "{{ tenants }}"

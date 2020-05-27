@@ -1,5 +1,5 @@
 ---
-tenant: "AATenant_Demo"
+tenant: "Tenant_Ansible"
 vrf: "VRF_Demo"
 bridge_domains:
   - bd: "BD_Demo"
