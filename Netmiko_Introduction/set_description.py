@@ -1,4 +1,4 @@
-from netmiko import ConnectHandler
+from netmiko import Netmiko
 
 devices = [{
    "device_type": "cisco_xe",
@@ -16,7 +16,7 @@ description_config = [
 ]
 
 for device in devices:
-   net_connect = ConnectHandler(**device)
+   net_connect = Netmiko(**device)
    output = net_connect.send_config_set(description_config)
    print(output)
    net_connect.disconnect()

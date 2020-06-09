@@ -1,4 +1,4 @@
-DEBUG:paramiko.transport:starting thread (client mode): 0x5af68e0
+DEBUG:paramiko.transport:starting thread (client mode): 0xc1aec90
 DEBUG:paramiko.transport:Local version/idstring: SSH-2.0-paramiko_2.7.1
 DEBUG:paramiko.transport:Remote version/idstring: SSH-2.0-Cisco-1.25
 INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
@@ -20,14 +20,6 @@ DEBUG:paramiko.transport:Secsh channel 0 opened.
 DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
 DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
 DEBUG:netmiko:read_channel: 
-Welcome to the DevNet Sandbox for CSR1000v and IOS XE
-
-The following programmability features are already enabled:
-  - NETCONF
-  - RESTCONF
-
-Thanks for stopping by.
-
 
 
 csr1000v-1#
@@ -38,359 +30,47 @@ DEBUG:netmiko:write_channel: b'\n'
 DEBUG:netmiko:read_channel: 
 csr1000v-1#
 DEBUG:netmiko:read_channel: 
-DEBUG:netmiko:[find_prompt()]: prompt is csr1000v-1#
 DEBUG:netmiko:read_channel: 
 DEBUG:netmiko:In disable_paging
 DEBUG:netmiko:Command: terminal length 0
 
 DEBUG:netmiko:write_channel: b'terminal length 0\n'
-DEBUG:netmiko:Pattern is: terminal\ length\ 0
+DEBUG:netmiko:Pattern is: csr1000v\-1
 DEBUG:netmiko:_read_channel_expect read_data: t
 DEBUG:netmiko:_read_channel_expect read_data: erminal length 0
 csr1000v-1#
-DEBUG:netmiko:Pattern found: terminal\ length\ 0 terminal length 0
+DEBUG:netmiko:Pattern found: csr1000v\-1 terminal length 0
 csr1000v-1#
 DEBUG:netmiko:terminal length 0
 csr1000v-1#
 DEBUG:netmiko:Exiting disable_paging
 DEBUG:netmiko:write_channel: b'terminal width 511\n'
-DEBUG:netmiko:Pattern is: terminal\ width\ 511
-DEBUG:netmiko:_read_channel_expect read_data: te
-DEBUG:netmiko:_read_channel_expect read_data: rminal width 511
-csr1000v-1#
-DEBUG:netmiko:Pattern found: terminal\ width\ 511 terminal width 511
-csr1000v-1#
-DEBUG:netmiko:read_channel: 
-DEBUG:netmiko:write_channel: b'\n'
-DEBUG:netmiko:Pattern is: #
-DEBUG:netmiko:_read_channel_expect read_data: 
-csr1000v-1#
-DEBUG:netmiko:Pattern found: # 
-csr1000v-1#
-DEBUG:netmiko:write_channel: b'config term\n'
-DEBUG:netmiko:Pattern is: config\ term
-DEBUG:netmiko:_read_channel_expect read_data: c
-DEBUG:netmiko:_read_channel_expect read_data: onfig term
-Enter configuration commands, one per line.  End with CNTL/Z.
-csr1000v-1(config)#
-DEBUG:netmiko:Pattern found: config\ term config term
-Enter configuration commands, one per line.  End with CNTL/Z.
-csr1000v-1(config)#
-DEBUG:netmiko:write_channel: b'\n'
-DEBUG:netmiko:Pattern is: #
-DEBUG:netmiko:_read_channel_expect read_data: 
-csr1000v-1(config)#
-DEBUG:netmiko:Pattern found: # 
-csr1000v-1(config)#
-DEBUG:netmiko:write_channel: b'interface GigabitEthernet3\n'
-DEBUG:netmiko:Pattern is: interface\ GigabitEthernet3
-DEBUG:netmiko:_read_channel_expect read_data: i
-DEBUG:netmiko:_read_channel_expect read_data: nterface GigabitEthernet3
-csr1000v-1(config-if)#
-DEBUG:netmiko:Pattern found: interface\ GigabitEthernet3 interface GigabitEthernet3
-csr1000v-1(config-if)#
-DEBUG:netmiko:write_channel: b'description This is set via Netmiko and text file123\n'
-DEBUG:netmiko:Pattern is: description\ This\ is\ set\ via\ Netmiko\ and\ text\ file123
-DEBUG:netmiko:_read_channel_expect read_data: d
-DEBUG:netmiko:_read_channel_expect read_data: escription This is set via 
-DEBUG:netmiko:_read_channel_expect read_data: Netmiko and text file123
-csr1000v-1(config-if)#
-DEBUG:netmiko:Pattern found: description\ This\ is\ set\ via\ Netmiko\ and\ text\ file123 description This is set via Netmiko and text file123
-csr1000v-1(config-if)#
-DEBUG:netmiko:write_channel: b'\n'
-DEBUG:netmiko:Pattern is: #
-DEBUG:netmiko:_read_channel_expect read_data: 
-csr1000v-1(config-if)#
-DEBUG:netmiko:Pattern found: # 
-csr1000v-1(config-if)#
-DEBUG:netmiko:write_channel: b'end\n'
-DEBUG:netmiko:Pattern is: end
-DEBUG:netmiko:_read_channel_expect read_data: en
-DEBUG:netmiko:_read_channel_expect read_data: d
-csr1000v-1#
-DEBUG:netmiko:Pattern found: end end
-csr1000v-1#
-DEBUG:netmiko:write_channel: b'\n'
-DEBUG:netmiko:Pattern is: #
-DEBUG:netmiko:_read_channel_expect read_data: 
-
-DEBUG:netmiko:_read_channel_expect read_data: csr1000v-1#
-DEBUG:netmiko:Pattern found: # 
-csr1000v-1#
-DEBUG:netmiko:exit_config_mode: end
-csr1000v-1#
-DEBUG:netmiko:config term
-Enter configuration commands, one per line.  End with CNTL/Z.
-csr1000v-1(config)#interface GigabitEthernet3
-csr1000v-1(config-if)#description This is set via Netmiko and text file123
-csr1000v-1(config-if)#end
-csr1000v-1#
-DEBUG:netmiko:write_channel: b'\n'
-DEBUG:netmiko:read_channel: 
-csr1000v-1#
-DEBUG:netmiko:read_channel: 
-DEBUG:netmiko:read_channel: 
-DEBUG:netmiko:write_channel: b'exit\n'
-DEBUG:paramiko.transport:starting thread (client mode): 0xed1eca0
-DEBUG:paramiko.transport:Local version/idstring: SSH-2.0-paramiko_2.7.1
-DEBUG:paramiko.transport:Remote version/idstring: SSH-2.0-Cisco-1.25
-INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
-DEBUG:paramiko.transport:kex algos:['diffie-hellman-group-exchange-sha1', 'diffie-hellman-group14-sha1'] server key:['ssh-rsa'] client encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr'] server encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr'] client mac:['hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1', 'hmac-sha1-96'] server mac:['hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1', 'hmac-sha1-96'] client compress:['none'] server compress:['none'] client lang:[''] server lang:[''] kex follows?False
-DEBUG:paramiko.transport:Kex agreed: diffie-hellman-group-exchange-sha1
-DEBUG:paramiko.transport:HostKey agreed: ssh-rsa
-DEBUG:paramiko.transport:Cipher agreed: aes128-ctr
-DEBUG:paramiko.transport:MAC agreed: hmac-sha2-256
-DEBUG:paramiko.transport:Compression agreed: none
-DEBUG:paramiko.transport:Got server p (2048 bits)
-DEBUG:paramiko.transport:kex engine KexGex specified hash_algo <built-in function openssl_sha1>
-DEBUG:paramiko.transport:Switch to new keys ...
-DEBUG:paramiko.transport:Adding ssh-rsa host key for [ios-xe-mgmt-latest.cisco.com]:8181: b'b7e974a8cbf96d464f7be3e12a86d265'
-DEBUG:paramiko.transport:userauth is OK
-INFO:paramiko.transport:Authentication (password) successful!
-DEBUG:paramiko.transport:[chan 0] Max packet in: 32768 bytes
-DEBUG:paramiko.transport:[chan 0] Max packet out: 4096 bytes
-DEBUG:paramiko.transport:Secsh channel 0 opened.
-DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
-DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
-DEBUG:netmiko:read_channel: 
-Welcome to csr1000v-1
-
-
-
-csr1000v-1#
-DEBUG:netmiko:read_channel: 
-DEBUG:netmiko:read_channel: 
-DEBUG:netmiko:read_channel: 
-DEBUG:netmiko:write_channel: b'\n'
-DEBUG:netmiko:read_channel: 
-csr1000v-1#
-DEBUG:netmiko:read_channel: 
-DEBUG:netmiko:[find_prompt()]: prompt is csr1000v-1#
-DEBUG:netmiko:read_channel: 
-DEBUG:netmiko:In disable_paging
-DEBUG:netmiko:Command: terminal length 0
-
-DEBUG:netmiko:write_channel: b'terminal length 0\n'
-DEBUG:netmiko:Pattern is: terminal\ length\ 0
-DEBUG:netmiko:_read_channel_expect read_data: t
-DEBUG:netmiko:_read_channel_expect read_data: erminal length 0
-csr1000v-1#
-DEBUG:netmiko:Pattern found: terminal\ length\ 0 terminal length 0
-csr1000v-1#
-DEBUG:netmiko:terminal length 0
-csr1000v-1#
-DEBUG:netmiko:Exiting disable_paging
-DEBUG:netmiko:write_channel: b'terminal width 511\n'
-DEBUG:netmiko:Pattern is: terminal\ width\ 511
-DEBUG:netmiko:_read_channel_expect read_data: te
-DEBUG:netmiko:_read_channel_expect read_data: rminal width 511
-csr1000v-1#
-DEBUG:netmiko:Pattern found: terminal\ width\ 511 terminal width 511
-csr1000v-1#
-DEBUG:netmiko:read_channel: 
-DEBUG:netmiko:write_channel: b'\n'
-DEBUG:netmiko:Pattern is: #
-DEBUG:netmiko:_read_channel_expect read_data: 
-
-DEBUG:netmiko:_read_channel_expect read_data: csr1000v-1#
-DEBUG:netmiko:Pattern found: # 
-csr1000v-1#
-DEBUG:netmiko:write_channel: b'config term\n'
-DEBUG:netmiko:Pattern is: config\ term
-DEBUG:netmiko:_read_channel_expect read_data: c
-DEBUG:netmiko:_read_channel_expect read_data: onfig term
-Enter configuration commands, one per line.  End with CNTL/Z.
-csr1000v-1(config)#
-DEBUG:netmiko:Pattern found: config\ term config term
-Enter configuration commands, one per line.  End with CNTL/Z.
-csr1000v-1(config)#
-DEBUG:netmiko:write_channel: b'\n'
-DEBUG:netmiko:Pattern is: #
-DEBUG:netmiko:_read_channel_expect read_data: 
-
-DEBUG:netmiko:_read_channel_expect read_data: csr1000v-1(config)#
-DEBUG:netmiko:Pattern found: # 
-csr1000v-1(config)#
-DEBUG:netmiko:write_channel: b'interface GigabitEthernet3\n'
-DEBUG:netmiko:Pattern is: interface\ GigabitEthernet3
-DEBUG:netmiko:_read_channel_expect read_data: i
-DEBUG:netmiko:_read_channel_expect read_data: nterface GigabitEthernet3
-csr1000v-1(config-if)#
-DEBUG:netmiko:Pattern found: interface\ GigabitEthernet3 interface GigabitEthernet3
-csr1000v-1(config-if)#
-DEBUG:netmiko:write_channel: b'description This is set via Netmiko and text file123\n'
-DEBUG:netmiko:Pattern is: description\ This\ is\ set\ via\ Netmiko\ and\ text\ file123
-DEBUG:netmiko:_read_channel_expect read_data: d
-DEBUG:netmiko:_read_channel_expect read_data: escription This is set via Netmiko and
-DEBUG:netmiko:_read_channel_expect read_data:  text file123
-csr1000v-1(config-if)#
-DEBUG:netmiko:Pattern found: description\ This\ is\ set\ via\ Netmiko\ and\ text\ file123 description This is set via Netmiko and text file123
-csr1000v-1(config-if)#
-DEBUG:netmiko:write_channel: b'\n'
-DEBUG:netmiko:Pattern is: #
-DEBUG:netmiko:_read_channel_expect read_data: 
-
-DEBUG:netmiko:_read_channel_expect read_data: csr1000v-1(config-if)#
-DEBUG:netmiko:Pattern found: # 
-csr1000v-1(config-if)#
-DEBUG:netmiko:write_channel: b'end\n'
-DEBUG:netmiko:Pattern is: end
-DEBUG:netmiko:_read_channel_expect read_data: e
-DEBUG:netmiko:_read_channel_expect read_data: nd
-csr1000v-1#
-DEBUG:netmiko:Pattern found: end end
-csr1000v-1#
-DEBUG:netmiko:write_channel: b'\n'
-DEBUG:netmiko:Pattern is: #
-DEBUG:netmiko:_read_channel_expect read_data: 
-
-DEBUG:netmiko:_read_channel_expect read_data: csr1000v-1#
-DEBUG:netmiko:Pattern found: # 
-csr1000v-1#
-DEBUG:netmiko:exit_config_mode: end
-csr1000v-1#
-DEBUG:netmiko:config term
-Enter configuration commands, one per line.  End with CNTL/Z.
-csr1000v-1(config)#interface GigabitEthernet3
-csr1000v-1(config-if)#description This is set via Netmiko and text file123
-csr1000v-1(config-if)#end
-csr1000v-1#
-DEBUG:netmiko:write_channel: b'\n'
-DEBUG:netmiko:read_channel: 
-csr1000v-1#
-DEBUG:netmiko:read_channel: 
-DEBUG:netmiko:read_channel: 
-DEBUG:netmiko:write_channel: b'exit\n'
-DEBUG:paramiko.transport:starting thread (client mode): 0xd08bca0
-DEBUG:paramiko.transport:Local version/idstring: SSH-2.0-paramiko_2.7.1
-DEBUG:paramiko.transport:Remote version/idstring: SSH-2.0-Cisco-1.25
-INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
-DEBUG:paramiko.transport:kex algos:['diffie-hellman-group-exchange-sha1', 'diffie-hellman-group14-sha1'] server key:['ssh-rsa'] client encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr'] server encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr'] client mac:['hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1', 'hmac-sha1-96'] server mac:['hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1', 'hmac-sha1-96'] client compress:['none'] server compress:['none'] client lang:[''] server lang:[''] kex follows?False
-DEBUG:paramiko.transport:Kex agreed: diffie-hellman-group-exchange-sha1
-DEBUG:paramiko.transport:HostKey agreed: ssh-rsa
-DEBUG:paramiko.transport:Cipher agreed: aes128-ctr
-DEBUG:paramiko.transport:MAC agreed: hmac-sha2-256
-DEBUG:paramiko.transport:Compression agreed: none
-DEBUG:paramiko.transport:Got server p (2048 bits)
-DEBUG:paramiko.transport:kex engine KexGex specified hash_algo <built-in function openssl_sha1>
-DEBUG:paramiko.transport:Switch to new keys ...
-DEBUG:paramiko.transport:Adding ssh-rsa host key for [ios-xe-mgmt-latest.cisco.com]:8181: b'b7e974a8cbf96d464f7be3e12a86d265'
-DEBUG:paramiko.transport:userauth is OK
-INFO:paramiko.transport:Authentication (password) successful!
-DEBUG:paramiko.transport:[chan 0] Max packet in: 32768 bytes
-DEBUG:paramiko.transport:[chan 0] Max packet out: 4096 bytes
-DEBUG:paramiko.transport:Secsh channel 0 opened.
-DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
-DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
-DEBUG:netmiko:read_channel: 
-Welcome to csr1000v-1
-
-
-
-csr1000v-1#
-DEBUG:netmiko:read_channel: 
-DEBUG:netmiko:read_channel: 
-DEBUG:netmiko:read_channel: 
-DEBUG:netmiko:write_channel: b'\n'
-DEBUG:netmiko:read_channel: 
-csr1000v-1#
-DEBUG:netmiko:read_channel: 
-DEBUG:netmiko:[find_prompt()]: prompt is csr1000v-1#
-DEBUG:netmiko:read_channel: 
-DEBUG:netmiko:In disable_paging
-DEBUG:netmiko:Command: terminal length 0
-
-DEBUG:netmiko:write_channel: b'terminal length 0\n'
-DEBUG:netmiko:Pattern is: terminal\ length\ 0
-DEBUG:netmiko:_read_channel_expect read_data: te
-DEBUG:netmiko:_read_channel_expect read_data: rminal length 0
-csr1000v-1#
-DEBUG:netmiko:Pattern found: terminal\ length\ 0 terminal length 0
-csr1000v-1#
-DEBUG:netmiko:terminal length 0
-csr1000v-1#
-DEBUG:netmiko:Exiting disable_paging
-DEBUG:netmiko:write_channel: b'terminal width 511\n'
-DEBUG:netmiko:Pattern is: terminal\ width\ 511
+DEBUG:netmiko:Pattern is: csr1000v\-1
 DEBUG:netmiko:_read_channel_expect read_data: t
 DEBUG:netmiko:_read_channel_expect read_data: erminal width 511
 csr1000v-1#
-DEBUG:netmiko:Pattern found: terminal\ width\ 511 terminal width 511
+DEBUG:netmiko:Pattern found: csr1000v\-1 terminal width 511
 csr1000v-1#
 DEBUG:netmiko:read_channel: 
-DEBUG:netmiko:write_channel: b'\n'
-DEBUG:netmiko:Pattern is: #
-DEBUG:netmiko:_read_channel_expect read_data: 
-
-DEBUG:netmiko:_read_channel_expect read_data: csr1000v-1#
-DEBUG:netmiko:Pattern found: # 
-csr1000v-1#
-DEBUG:netmiko:write_channel: b'config term\n'
-DEBUG:netmiko:Pattern is: config\ term
-DEBUG:netmiko:_read_channel_expect read_data: co
-DEBUG:netmiko:_read_channel_expect read_data: nfig term
-Enter configuration commands, one per line.  End with CNTL/Z.
-csr1000v-1(config)#
-DEBUG:netmiko:Pattern found: config\ term config term
-Enter configuration commands, one per line.  End with CNTL/Z.
-csr1000v-1(config)#
-DEBUG:netmiko:write_channel: b'\n'
-DEBUG:netmiko:Pattern is: #
-DEBUG:netmiko:_read_channel_expect read_data: 
-
-DEBUG:netmiko:_read_channel_expect read_data: csr1000v-1(config)#
-DEBUG:netmiko:Pattern found: # 
-csr1000v-1(config)#
-DEBUG:netmiko:write_channel: b'interface GigabitEthernet3\n'
-DEBUG:netmiko:Pattern is: interface\ GigabitEthernet3
-DEBUG:netmiko:_read_channel_expect read_data: in
-DEBUG:netmiko:_read_channel_expect read_data: terface GigabitEthernet3
-csr1000v-1(config-if)#
-DEBUG:netmiko:Pattern found: interface\ GigabitEthernet3 interface GigabitEthernet3
-csr1000v-1(config-if)#
-DEBUG:netmiko:write_channel: b'description This is set via Netmiko and text file\n'
-DEBUG:netmiko:Pattern is: description\ This\ is\ set\ via\ Netmiko\ and\ text\ file
-DEBUG:netmiko:_read_channel_expect read_data: d
-DEBUG:netmiko:_read_channel_expect read_data: escription This is set via Netmiko a
-DEBUG:netmiko:_read_channel_expect read_data: nd text file
-csr1000v-1(config-if)#
-DEBUG:netmiko:Pattern found: description\ This\ is\ set\ via\ Netmiko\ and\ text\ file description This is set via Netmiko and text file
-csr1000v-1(config-if)#
-DEBUG:netmiko:write_channel: b'\n'
-DEBUG:netmiko:Pattern is: #
-DEBUG:netmiko:_read_channel_expect read_data: 
-
-DEBUG:netmiko:_read_channel_expect read_data: csr1000v-1(config-if)#
-DEBUG:netmiko:Pattern found: # 
-csr1000v-1(config-if)#
-DEBUG:netmiko:write_channel: b'end\n'
-DEBUG:netmiko:Pattern is: end
-DEBUG:netmiko:_read_channel_expect read_data: end
-DEBUG:netmiko:Pattern found: end end
-DEBUG:netmiko:Pattern is: #
-DEBUG:netmiko:_read_channel_expect read_data: 
-
-DEBUG:netmiko:_read_channel_expect read_data: csr1000v-1#
-DEBUG:netmiko:Pattern found: # 
-csr1000v-1#
-DEBUG:netmiko:write_channel: b'\n'
-DEBUG:netmiko:Pattern is: #
-DEBUG:netmiko:_read_channel_expect read_data: 
-
-DEBUG:netmiko:_read_channel_expect read_data: csr1000v-1#
-DEBUG:netmiko:Pattern found: # 
-csr1000v-1#
-DEBUG:netmiko:exit_config_mode: end
-csr1000v-1#
-DEBUG:netmiko:config term
-Enter configuration commands, one per line.  End with CNTL/Z.
-csr1000v-1(config)#interface GigabitEthernet3
-csr1000v-1(config-if)#description This is set via Netmiko and text file
-csr1000v-1(config-if)#end
-csr1000v-1#
+DEBUG:netmiko:read_channel: 
 DEBUG:netmiko:write_channel: b'\n'
 DEBUG:netmiko:read_channel: 
 csr1000v-1#
 DEBUG:netmiko:read_channel: 
 DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'show arp\n'
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: show arp
+Protocol  Address          Age (min)  Hardware Addr   Type   Interface
+Internet  10.10.10.10             -   0050.56bb.771a  ARPA   GigabitEthernet2
+Internet  10.10.20.48             -   0050.56bb.e99c  ARPA   GigabitEthernet1
+Internet  10.10.20.254            0   0896.ad9e.444c  ARPA   GigabitEthernet1
+csr1000v-1#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+csr1000v-1#
+DEBUG:netmiko:Pattern found: # 
+csr1000v-1#
+DEBUG:netmiko:exit_config_mode: 
 DEBUG:netmiko:write_channel: b'exit\n'

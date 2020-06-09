@@ -1,4 +1,4 @@
-from netmiko import ConnectHandler
+from netmiko import Netmiko
 import logging
 
 devices = [{
@@ -13,7 +13,7 @@ logging.basicConfig(filename="test.log", level=logging.DEBUG)
 logger = logging.getLogger("netmiko")
 
 for device in devices:
-   net_connect = ConnectHandler(**device)
+   net_connect = Netmiko(**device)
    output = net_connect.send_config_from_file('changes.txt')
    print(output)
    net_connect.disconnect()

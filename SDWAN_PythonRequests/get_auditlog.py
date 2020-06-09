@@ -26,4 +26,4 @@ def get_auditlog():
 
 
 if __name__ == "__main__":
-   response = get_auditlog()
+   get_auditlog()
