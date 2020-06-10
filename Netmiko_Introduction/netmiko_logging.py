@@ -9,7 +9,7 @@ cisco_xe = {
     "ip": "ios-xe-mgmt-latest.cisco.com",
     "username": "developer",
     "password": "C1sco12345",
-    "port": "8181",
+    "port": "22",
 }
 
 net_connect = Netmiko(**cisco_xe)
