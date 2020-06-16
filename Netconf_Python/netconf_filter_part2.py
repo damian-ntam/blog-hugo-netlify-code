@@ -3,13 +3,13 @@ import xmltodict
 import xml.dom.minidom
 
 router = {
-   'ip': 'ios-xe-mgmt-latest.cisco.com',
+   'host': 'ios-xe-mgmt-latest.cisco.com',
    'port': '10000',
    'username': 'developer',
    'password': 'C1sco12345'
 }
 
-m = manager.connect(host=router['ip'], port=router['port'], username=router['username'],
+m = manager.connect(host=router['host'], port=router['port'], username=router['username'],
                     password=router['password'], device_params={'name':'iosxe'}, hostkey_verify=False)
 
 netconf_filter = """

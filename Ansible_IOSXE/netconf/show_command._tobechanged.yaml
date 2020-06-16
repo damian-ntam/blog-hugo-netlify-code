@@ -5,8 +5,9 @@
   gather_facts: False
 
   tasks:
-  - name: run multiple commands
-    netconf_get:
-      source: running
+    - name: run multiple commands
+      netconf_get:
+        source: running
+        
 
   

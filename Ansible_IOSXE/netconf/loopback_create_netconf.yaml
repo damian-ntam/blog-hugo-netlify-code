@@ -1,7 +1,7 @@
 ---
 - name: Add interface to IOSXE
   hosts: iosxe
-  connection: local
+  connection: netconf
   gather_facts: False
 
   tasks:
@@ -14,12 +14,11 @@
         port: "{{netconf_port}}"
         username: "{{ansible_user}}"
         password: "{{ansible_password}}"
-        hostkey_verify: False
         content: |
             <config>
               <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
                 <interface>
-                  <name>Loopback1001</name>
+                  <name>Loopback200043</name>
                   <description>Pod Number 100</description>
                   <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">
                     ianaift:softwareLoopback
@@ -27,7 +26,7 @@
                   <enabled>true</enabled>
                   <ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip">
                     <address>
-                      <ip>10.111.100.3</ip>
+                      <ip>10.111.100.43</ip>
                       <netmask>255.255.255.255</netmask>
                     </address>
                   </ipv4>

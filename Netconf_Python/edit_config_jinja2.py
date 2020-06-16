@@ -3,7 +3,7 @@ from jinja2 import Environment
 from jinja2 import FileSystemLoader
 
 router = {
-   'ip': 'ios-xe-mgmt-latest.cisco.com',
+   'host': 'ios-xe-mgmt-latest.cisco.com',
    'port': '10000',
    'username': 'developer',
    'password': 'C1sco12345'
@@ -25,7 +25,7 @@ netconf_payload = template.render(template_vars)
  
 print(netconf_payload)
 
-m = manager.connect(host=router['ip'], port=router['port'], username=router['username'],
+m = manager.connect(host=router['host'], port=router['port'], username=router['username'],
                     password=router['password'], device_params={'name':'iosxe'}, hostkey_verify=False)
 
 response = m.edit_config(netconf_payload, target="running")
