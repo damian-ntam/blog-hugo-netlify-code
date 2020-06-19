@@ -7,8 +7,7 @@ def login():
     authentication_endpoint = "/j_security_check"
     
     headers = {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
+        "Content-Type": "application/x-www-form-urlencoded",
     }
 
     body = {    
@@ -27,6 +26,6 @@ def login():
         import sys
         sys.exit(0)
     else:
-        #print("Login succeeded")
+        print("Login succeeded")
         return session
         

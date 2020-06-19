@@ -2,7 +2,7 @@ from netmiko import Netmiko
 
 device = {
     "device_type": "cisco_xe",
-    "ip": "ios-xe-mgmt-latest.cisco.com",
+    "host": "ios-xe-mgmt-latest.cisco.com",
     "username": "developer",
     "password": "C1sco12345",
     "secret": "C1sco12345",

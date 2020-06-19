@@ -6,7 +6,7 @@
   tasks:
   - name: GATHERING FACTS
     ios_facts:
-      gather_subset: hardware
+      gather_subset: all
 
   - name: run show version
     ios_command:
@@ -25,3 +25,7 @@
   - name: display interfaces
     debug:
       var: interfaces["stdout_lines"][0]
+
+  - name: What is IOS interfaces
+    debug:
+      var: ansible_net_all_ipv4_addresses

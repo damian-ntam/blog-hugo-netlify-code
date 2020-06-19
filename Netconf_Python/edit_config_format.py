@@ -19,6 +19,3 @@ m = manager.connect(host=router['host'], port=router['port'], username=router['u
 response = m.edit_config(netconf_payload, target="running")
 
 print(response)
-
-
-
